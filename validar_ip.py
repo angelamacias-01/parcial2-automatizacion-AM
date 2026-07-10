@@ -1,0 +1,11 @@
+def es_ip_valida(ip):
+    partes = ip.split('.')
+    if len(partes) != 4:
+        return False
+    for parte in partes:
+        parte = parte.strip()
+        if not parte.isdigit() or (len(parte) > 1 and parte.startswith('0')):
+            return False
+        if int(parte) < 0 or int(parte) > 255:
+            return False
+    return True
